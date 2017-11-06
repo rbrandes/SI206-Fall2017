@@ -7,6 +7,9 @@ import re
 import tweepy
 import twitter_info # still need this in the same directory, filled out
 
+
+#fixed incorrect twitter_info syntax 
+
 consumer_key = twitter_info.consumer_key
 consumer_secret = twitter_info.consumer_secret
 access_token = twitter_info.access_token
