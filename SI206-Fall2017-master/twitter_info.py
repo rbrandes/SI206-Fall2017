@@ -1,4 +1,6 @@
 ## To fill these in:
+#twitter info for my personal twitter account
+#hi
 ## 1. Create a twitter account, or log in to your own
 ## 2. apps.twitter.com
 ## 3. Click "Create New App"
