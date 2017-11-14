@@ -5,12 +5,12 @@ import requests
 import json
 import re
 import tweepy
-import twitter_info # still need this in the same directory, filled out
+import Twitter_info # still need this in the same directory, filled out
 
-consumer_key = twitter_info.consumer_key
-consumer_secret = twitter_info.consumer_secret
-access_token = twitter_info.access_token
-access_token_secret = twitter_info.access_token_secret
+consumer_key = Twitter_info.consumer_key
+consumer_secret = Twitter_info.consumer_secret
+access_token = Twitter_info.access_token
+access_token_secret = Twitter_info.access_token_secret
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 
