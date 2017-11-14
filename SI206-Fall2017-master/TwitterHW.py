@@ -21,7 +21,7 @@ auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth, parser=tweepy.parsers.JSONParser())
 
 # And we've provided the setup for your cache. But we haven't written any functions for you, so you have to be sure that any function that gets data from the internet relies on caching.
-CACHE_FNAME = "twitter_cache.json"
+CACHE_FNAME = "206_APIsanDBs.json"
 try:
     cache_file = open(CACHE_FNAME,'r')
     cache_contents = cache_file.read()
@@ -82,16 +82,27 @@ cursor=connection.cursor()
 # 2 - Write code to drop the Tweets table if it exists, and create the table (so you can run the program over and over), with the correct (4) column names and appropriate types for each.
 # HINT: Remember that the time_posted column should be the TIMESTAMP data type!
 
-cursor.execute("DROP TABLE IF EXISTS Tweets")
-cursor.execute("CREATE TABLE Tweets (tweet_id TEXT, author TEXT, time_posted TIMESTAMP, tweet_text TEXT, retweets INTEGER)")
+cur.execute("DROP TABLE IF EXISTS Tweets")
+cur.execute("CREATE TABLE Tweets (tweet_id TEXT, author TEXT, time_posted TIMESTAMP, tweet_text TEXT, retweets INTEGER)")
 # 3 - Invoke the function you defined above to get a list that represents a bunch of tweets from the UMSI timeline. Save those tweets in a variable called umsi_tweets.
-umsi_tweets=get_tweets()
+umsi_tweets=get_tweets('@umich')
 
 # 4 - Use a for loop, the cursor you defined above to execute INSERT statements, that insert the data from each of the tweets in umsi_tweets into the correct columns in each row of the Tweets database table.
+mentioned_users=[58849849]
 
 for a in umsi_tweets["statuses"]:
     tup=a["id"], a["user"]["screen_name"], a["created_at"], a["text"], a["retweet_count"]
     cursor.execute("INSERT INTO Tweets (tweet_id, author, time_posted, tweet_text, retweets) VALUES (?,?,?,?,?)", tup)
+
+or user in mentioned_users: 
+    if user not in cache_diction['user_info']: 
+        cache_diction['user_info'][user] = api.get_user(user) 
+        cache_file = open(CACHE_FNAME, 'w')
+        cache_file.write(json.dumps(cache_diction, indent = 4)) 
+        cache_file.close()
+    user_info = cache_diction['user_info'][user]
+    table_info = (user_info['id_str'], user_info['screen_name'], user_info['favourites_count'], user_info['description']) 
+    cur.execute('INSERT INTO Users (user_id, screen_name, num_favs, description) VALUES (?,?,?,?)', table_info) 
 #  5- Use the database connection to commit the changes to the database
 
 # You can check out whether it worked in the SQLite browser! (And with the tests.)
