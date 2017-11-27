@@ -1,6 +1,4 @@
 ## To fill these in:
-#twitter info for my personal twitter account
-#hi
 ## 1. Create a twitter account, or log in to your own
 ## 2. apps.twitter.com
 ## 3. Click "Create New App"
@@ -13,7 +11,7 @@
 ## 10. Make sure this file is in the same directory as the tweepy_example file (or any other file) where you import twitter_info!
 ## 11. (Don't share this file with anyone or push it to a public GitHub repository -- it contains access to your Twitter account!)
 
-consumer_key = "K6puT5adDh1QHRlrUxGwWmk9F"
-consumer_secret = "sHx0RBHTWwJGQGs3uGjUUKRvuQw9mnRsFzqurTCxibY1AuT16N"
-access_token = "399775230-HL72DSAXLtA1OZMndUZGlCLWMunbtC2sCGg1WePD"
-access_token_secret = "1U2yI4zdgzhVGFBiCavIiDPqlj88qVWAjPlXii4ALz8GX"
+consumer_key = "Ajy8oyWOAJz23EipXEuA4Emwg"
+consumer_secret = "m3ME0cuI4um52XGLXsIE7ltUVQdJwQDkk28pswIrxUoTgHwnZ7"
+access_token = "411210342-0WmunMLHjyDfgQB1pIU1zSK7lMsX7RxVrQmjGJOO"
+access_token_secret = "IbA3LO1VA6rNbtksZxkNloH2ALQRsCYRHSPmVFbqIs5it"
